@@ -6,7 +6,11 @@ module.exports = {
     path: path.resolve(__dirname, "build"),
     filename: "main.bundle.js"
   },
-  
+  devServer: {
+    contentBase: path.join(__dirname, "build"),
+    compress: true,
+    port: 8080
+  }
    module: {
     loaders: [
       {
@@ -22,7 +26,7 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         loader: 'file-loader'
-      }
+      },
     ]
   }
 
