@@ -14,7 +14,6 @@
     "babel-preset-react": "^6.24.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "webpack": "^3.10.0",
     "webpack-dev-server": "^2.10.1"
   },
   "devDependencies": {
@@ -23,11 +22,16 @@
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1"
+    "eslint-plugin-react": "^7.5.1",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.10.0"
   },
   "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server",
     "test": "test",
-    "eslint": "./node_modules/.bin/eslint ."
+    "eslint": "./node_modules/eslint/bin/eslint.js ./lib/*.js"
   },
   "author": "Jeff Goodall",
   "license": "ISC"
