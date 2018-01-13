@@ -1,33 +1,96 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./lib/index.js",
+  entry: {
+    app: "./lib/index.js"
+  },
   output: {
-    path: path.resolve(__dirname, "build"),
-    filename: "main.bundle.js"
+    path: path.join(__dirname, "build"),
+    filename: "[name].bundle.js"
   },
   devServer: {
     contentBase: path.join(__dirname, "build"),
     compress: true,
     port: 8080
-  }
-   module: {
-    loaders: [
+  },
+  module: {
+    rules: [
       {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['es2015', 'react'],
-        },
+        test: /\.(js|jsx)$/,
+        use: "babel-loader",
+        exclude: /node-modules/
       },
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.scss$/, loader: 'style!css!sass' },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        loader: 'file-loader'
+        test: /\.(png|woff|eot|ttf|svg|gif)$/,
+        use: "url-loader",
+        exclude: /node-modules/
       },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      }
     ]
   }
-
 };
+
+// const path = require("path");
+
+// module.exports = {
+//   entry: {
+//     app: './lib/index.js',
+//   },
+//   output: {
+//     path: path.join(__dirname, 'build'),
+//     filename: '[name].bundle.js'
+//   },
+//    module: {
+//     rules: [
+//       {
+//         test: /\.(js|jsx)$/,
+//         use: 'babel-loader',
+//         exclude: /node-modules/,
+//       },
+//       {
+//         test: /\.(png|woff|eot|ttf|svg|gif)$/,
+//         use: 'url-loader',
+//         exclude: /node-modules/,
+//       },
+//       {
+//         test: /\.(css|scss)$/,
+//         use: [
+//           {
+//             loader: 'style-loader'
+//           },
+//           {
+//             loader: 'css-loader',
+//             options: {
+//               sourceMap: true
+//             }
+//           },
+//           {
+//             loader: 'sass-loader',
+//             options: {
+//               sourceMap: true
+//             }
+//           }
+//         ]
+//      }
+//     ]
+//   },
+// };
