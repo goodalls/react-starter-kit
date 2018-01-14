@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "start": "webpack-dev-server --watch",
-    "build": "webpack",
+    "build": "webpack && cp ./index.html ./build/index.html",
     "test": "jest",
     "eslint": "./node_modules/.bin/eslint ./lib/*.js, ./lib/*.jsx"
   },

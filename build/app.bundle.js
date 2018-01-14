@@ -958,14 +958,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(
   "div",
   null,
-  ",",
   _react2.default.createElement(
     "h1",
     null,
     " Hello World!"
-  ),
-  ","
-), document.getElementById("app"));
+  )
+), document.getElementById('app'));
 
 /***/ }),
 /* 15 */
