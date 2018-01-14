@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --watch",
     "build": "webpack",
     "test": "jest",
-    "eslint": "./node_modules/.bin/eslint ./lib/*.js"
+    "eslint": "./node_modules/.bin/eslint ./lib/*.js, ./lib/*.jsx"
   },
   "repository": {
     "type": "git",
