@@ -30,6 +30,7 @@
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.5.1",
     "html-webpack-plugin": "^2.30.1",
+    "identity-obj-proxy": "^3.0.0",
     "node-sass": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -39,5 +40,15 @@
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.10.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "jest": {
+    "transform": {
+      ".*": "<rootDir>/node_modules/jest-css-modules"
+    },
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    }
+  }
 }
